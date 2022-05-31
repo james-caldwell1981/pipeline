@@ -35,7 +35,7 @@ def connect_to_database(conn=None, cursor=True):
     elif conn is None:
         raise ConnectionAbortedError('Parameter conn must be psycopg2 connection to generate cursor.')
     if cursor is True:
-        return tuple(conn, conn.cursor())
+        return (conn, conn.cursor())
     else:
         return tuple(conn)
 
