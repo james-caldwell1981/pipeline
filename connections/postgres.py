@@ -53,7 +53,7 @@ def connect_to_database(conn: bool = False, cursor: bool = True) -> tuple:
                                 user=environ['USER'],
                                 password=environ['PASS'])
     if cursor is True:
-        return tuple(conn, conn.cursor())
+        return tuple((conn, conn.cursor()))
     else:
         return tuple(conn)
 
