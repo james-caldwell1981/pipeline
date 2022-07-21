@@ -1,0 +1,37 @@
+site_name: Pipeline Documentation
+site_url: https://jamescaldwell1981.pythonanywhere.com/pipline
+repo_url: https://github.com/james-caldwell1981/pipeline
+repo_name: pipline
+edit_uri: ../documentation/
+
+theme: lux
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - print(sys.path)
+            - import sys
+            - sys.path.append('../loaders')
+            - sys.path.append('../connections')
+            - sys.path.append('../extractors')
+
+nav_01:
+  - Tutorials: tutorials.md
+  - How-To-Guides: howto.md
+  - References: reference.md
+  - Project Explanation: explanation.md
+nav_02:
+  - Home: index.md
+  - Connections:
+      - Postgres Conn: connections/postgres_conn.md
+  - Extractors:
+      - CSV Files: extractors/csv_data.md
+  - Loaders:
+      - Postgres Loader: loaders/postgres_loader.md
+
+docs_dir: ./documentation
+site_dir:
+  - ./docs_site
+
